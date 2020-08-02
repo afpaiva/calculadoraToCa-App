@@ -10,7 +10,7 @@ This is an App, side project of an occupancy rate and utilization coefficient ca
 For Engineers and Architects from Brazil and other coutries that uses this
 calculation pattern.
 
-As a part of study of JS, React and React Native
+As a part of study of JS and React Native
 
 Created by Andre Paiva
 
