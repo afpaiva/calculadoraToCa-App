@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
 
   container: {
     flex: 1,
@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   },
   
   titleBox:{
-    marginTop: 35,
+    margin: 30,
+    marginTop: 50,
     alignSelf: 'center',
     width: 280,
     padding: 10,
@@ -22,7 +23,20 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderBottomLeftRadius: 20,
     borderBottomEndRadius: 20
+  },
+
+  input:{
+    backgroundColor: '#fff',
+    width: 170,
+    borderRadius: 20,
+    margin: 10,
+    justifyContent: 'flex-end'
+  },
+
+  text:{
+    color: '#fff'
   }
+
 });
 
-export default styles;
+export default style;

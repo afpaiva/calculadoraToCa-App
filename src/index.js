@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import styles from './styles';
+import { View, Text, TextInput } from 'react-native';
+import style from './style';
 
 //var arrBuilding = [];
 //for (let i = 0; i < 100; i++){
@@ -11,10 +11,19 @@ import styles from './styles';
 export default function Index(){
 
   return (
-    <View style = {styles.container}>
-      <View style = {styles.titleBox}>
-        <Text style = {styles.title}> CALCULADORA TO.CA. </Text>
+    <View style = {style.container}>
+      
+      <View style = {style.titleBox}>
+        <Text style = {style.title}> CALCULADORA TO.CA. </Text>
       </View>
+
+      <Text style = {style.text}>
+        Área do terreno (m²):
+      </Text>
+      <TextInput style = {style.input} keyboardType = {"numeric"}>
+        
+      </TextInput>
+
     </View>
   );
 
