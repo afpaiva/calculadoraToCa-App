@@ -7,6 +7,8 @@ import ShareButton from './components/shareButton';
 
 export default function Index(){
 
+  
+
   return (
     <View style = {style.container}>
 
@@ -24,7 +26,7 @@ export default function Index(){
           <TextInput style = {style.input} keyboardType = {"numeric"}/>
         </View>
 
-        <Floor/>
+        <Floor level="abaixo"/>
 
         <View style = {style.bordered}>
 
@@ -40,7 +42,7 @@ export default function Index(){
         
         </View>
 
-        <Floor/>
+        <Floor level="acima"/>
 
         <View style = {{height: 20}}/>
 

@@ -1,23 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Floor(){
+const Floor = (props) => {
   return (
     <View style = {style.view}>
 
-      <TouchableOpacity style = {style.btn}>
+      <TouchableOpacity
+        style = {style.btn} 
+        onPress = {}>
         <Text style = {style.textBold}>+</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style = {style.btn}>
+      <TouchableOpacity
+      style = {style.btn}
+      onPress = {}>
         <Text style =  {style.textBold}>-</Text>
       </TouchableOpacity>
 
-      <Text style = {style.text}>inserir pavimento abaixo</Text>
+  <Text style = {style.text}>inserir pavimento {props.level}</Text>
 
     </View>
   );
 }
+
+export default Floor;
 
 const style = StyleSheet.create({ 
   view:{
