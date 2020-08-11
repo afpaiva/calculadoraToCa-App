@@ -5,9 +5,15 @@ import style from './style';
 import Floor from './components/floor';
 import ShareButton from './components/shareButton';
 
-export default function Index(){
+// Array to receive new floor areas
+export var building = [
+  {
+  label: 'Pavimento Térreo',
+  area: ''
+  }
+];
 
-  
+export default function Index(){
 
   return (
     <View style = {style.container}>
@@ -29,17 +35,18 @@ export default function Index(){
         <Floor level="abaixo"/>
 
         <View style = {style.bordered}>
-
-
-          <Text style = {style.text}>
-              1:
-            </Text>
-            <TextInput
-              style = {style.inputLabel}
-              keyboardType = {"default"}
-              defaultValue = {"Pavimento Térreo"}/>
-            <TextInput style = {style.inputArea} keyboardType = {"numeric"}/>
-        
+          {building.map(e =>
+            <View key={e.label}>
+              <TextInput
+                style = {style.inputLabel}
+                keyboardType = {"default"}
+                defaultValue = {e.label}/>
+              <TextInput
+                style = {style.inputArea}
+                keyboardType = {"numeric"}
+                defaultValue={e.area}/>
+            </View>
+          )}
         </View>
 
         <Floor level="acima"/>
