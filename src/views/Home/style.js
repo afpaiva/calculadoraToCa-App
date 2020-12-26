@@ -17,7 +17,6 @@ const style = StyleSheet.create({
   
   titleBox:{
     margin: 30,
-    marginTop: 50,
     alignSelf: 'center',
     width: 280,
     height: 60,

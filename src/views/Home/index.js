@@ -4,7 +4,8 @@ import {
   Text,
   TextInput,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from "react-native";
 import style from "./style";
 import ShareButton from "../../components/shareButton";
@@ -75,6 +76,7 @@ export default function Index() {
 
   return(
   <View style={style.container}>
+    <StatusBar backgroundColor="black" barStyle="light-content"/>
     <ScrollView>
       <View style={style.titleBox}>
         <Text style={style.title}> CALCULADORA TO.CA. </Text>
