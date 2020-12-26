@@ -85,15 +85,48 @@ const style = StyleSheet.create({
     height: 65
   },
 
-
   bordered:{
     padding: 15,
     margin: 10,
     borderWidth: 1,
     borderRadius: 20,
     borderColor: '#fff'
-  }
+  },
 
+//---buttons---
+
+  viewBtn:{
+    margin: 10,
+    flexDirection: 'row'
+  },
+
+  textBtn:{
+    marginTop: 5,
+    marginLeft: 5,
+    textAlign: 'center',
+    color:"#fff",
+  },
+
+  textBold:{
+    textAlign: 'center',
+    color:"#fff",
+    fontWeight: 'bold'
+  },
+
+  btn:{
+    margin: 5,
+    marginTop: 0,
+    width: 30,
+    height: 30,
+    color: '#fff',
+    backgroundColor: '#000',
+    borderRadius: 20,
+    justifyContent: 'center',
+    borderLeftWidth: 2,
+    borderTopWidth: 1,
+    borderColor: '#757575'
+  }
+  
 });
 
 export default style;
