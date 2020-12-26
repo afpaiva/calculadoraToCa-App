@@ -1,5 +1,5 @@
 import React from 'react';
-import Index from './src/index';
+import Index from './src/views/Home';
 console.disableYellowBox = true;
 
 export default function App() {

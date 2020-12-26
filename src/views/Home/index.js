@@ -7,37 +7,49 @@ import {
   TouchableOpacity
 } from "react-native";
 import style from "./style";
-import ShareButton from "./components/shareButton";
+import ShareButton from "../../components/shareButton";
 
 var up = 0;
 var down = 0;
+var newId = 0;
 
 export default function Index() {
   
   const [building, setBuilding] = useState([{
+    id: newId,
     label: "Pavimento Térreo",
     area: 0
   }]);
-  const [areaTerreno, setAreaTerreno] = useState();
-  const [areaProjecao, setAreaProjecao] = useState();
+  const [areaTerreno, setAreaTerreno] = useState(1);
+  const [areaProjecao, setAreaProjecao] = useState(0);
+  const [areaPermeavel, setAreaPermeavel] = useState(0);
   const [areaTotal, setAreaTotal] = useState(0);
+  const [txOcupacao, setTxOcupacao] = useState(0);
+  const [coefAprov, setCoefAprov] = useState(0);
+  const [txPermeab, setTxPermeab] = useState(0);
   const forceUpdate = useForceUpdate();
   
   useEffect(()=>{
-    console.log(building);
+    setTxOcupacao((areaTotal*100/areaTerreno).toFixed(2));
+    setCoefAprov((areaProjecao/areaTerreno).toFixed(2));
+    setTxPermeab((areaPermeavel*100/areaTerreno).toFixed(2));
   });
 
   function setLevels(e){
     if (e == "acima"){
       up++;
+      newId++;
       building.push({
+        id: newId,
         label: up + 'º Pavimento',
         area: 0
       });
     }
     else if (e == "abaixo"){
       down++;
+      newId++;
       building.unshift({
+        id: newId,
         label: down + 'º Subsolo',
         area: 0
       });
@@ -98,7 +110,7 @@ export default function Index() {
 
       <View style={style.bordered}>
         {building.map((e) => 
-          <View>
+          <View key={e.id}>
             <TextInput
               style={style.inputLabel}
               keyboardType={"default"}
@@ -153,7 +165,11 @@ export default function Index() {
 
       <View style={style.view}>
         <Text style={style.text}>Área permeável (m²):</Text>
-        <TextInput style={style.input} keyboardType={"numeric"} />
+        <TextInput
+          style={style.input}
+          keyboardType={"numeric"}
+          onChangeText={value => setAreaPermeavel(value)}
+          />
       </View>
 
       <View style={style.bordered}>
@@ -162,7 +178,7 @@ export default function Index() {
             <Text style={style.textGreater}>Área total da construção:</Text>
           </View>
           <View>
-            <Text style={style.text}>{areaTotal}</Text>
+            <Text style={style.text}>{areaTotal}m²</Text>
           </View>
         </View>
 
@@ -171,7 +187,7 @@ export default function Index() {
             <Text style={style.textGreater}>Taxa de Ocupação TO:</Text>
           </View>
           <View>
-            <Text style={style.text}>20 %</Text>
+            <Text style={style.text}>{txOcupacao}%</Text>
           </View>
         </View>
 
@@ -182,7 +198,7 @@ export default function Index() {
             </Text>
           </View>
           <View>
-            <Text style={style.text}>0.5</Text>
+            <Text style={style.text}>{coefAprov}</Text>
           </View>
         </View>
 
@@ -191,7 +207,7 @@ export default function Index() {
             <Text style={style.textGreater}>Taxa de Permeabilidade:</Text>
           </View>
           <View>
-            <Text style={style.text}>37 %</Text>
+            <Text style={style.text}>{txPermeab}%</Text>
           </View>
         </View>
       </View>
